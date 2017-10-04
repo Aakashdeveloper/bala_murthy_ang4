@@ -8,7 +8,8 @@ import {Employee} from '../models/employee.model';
 })
 export class HomeComponent {
   languages=["Nodejs","AngularJs","ReactJs"];
-  model = new Employee('','');
+  model = new Employee('','',true,'male','default');
+  hasCodeLangError= false;
 
   firstNameToUpperCase(value:string){
     if(value.length>0)
@@ -16,4 +17,18 @@ export class HomeComponent {
     else
       this.model.firstName=value
   }
+
+  validOption(event){
+    if(this.model.codelang === 'default')
+      this.hasCodeLangError=true;
+    else
+      this.hasCodeLangError=false;
+  }
+
 }
+
+
+/*
+ng-untouched   ng-pristien   ng-valid
+ng-touched     ng-dirty      ng-invalid
+*/
