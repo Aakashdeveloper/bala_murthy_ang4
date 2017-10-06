@@ -1,7 +1,7 @@
 <div class="container">
 <h3>Angular4 Form</h3>
 
-<form #form ="ngForm" novalidate>
+<form #form ="ngForm" novalidate (submit)="submitForm(form)">
     <div class="form-group" [class.has-error]="firstName.invalid">
         <label for="firstName" class="control-label">FirstName</label>
         <input id="firstName" #firstName="ngModel" pattern="[A-Z][a-z]" type="text" required placeholder="FirstName" name="firstName"
