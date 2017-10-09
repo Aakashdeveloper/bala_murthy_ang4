@@ -27,7 +27,11 @@ export class HomeComponent {
 
   submitForm(form: NgForm){
     console.log(form.value)
-    this.formposter.postEmployeeForm(this.model);
+    this.formposter.postEmployeeForm(this.model)
+      .subscribe(
+        data => console.log('success',data),
+        err => console.log('error',err)
+      )
   }
 
   validOption(event){
